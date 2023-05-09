@@ -1,12 +1,12 @@
-async function getStarshipModelByCharacterId(){
+async function getStarshipModelByCharacterId(id){
 
-    const peopleResponse = await fetch("https://swapi.dev/api/people/1/" + id);
+    const peopleResponse = await fetch("https://swapi.dev/api/people/" + id);
     const peopleData = await peopleResponse.json();
-    const startshipUrls = peopleData.startshipUrls;
+    const startshipUrls = peopleData.starships;
 
     const result = [];
 
-    for(let i=0;i < startshipUrls.length;i++){
+    for(let i=0;i < startshipUrls.length ;i++){
         const starShipResponse = await fetch(startshipUrls[i]);
         const startshipData = await starShipResponse.json();
 
